@@ -1,0 +1,5 @@
+name: LoyHelper
+main: io.loyloy.loyhelper.spigot.LoyHelper
+version: 1.0
+author: Melonking
+description: Loy compatability and features.
