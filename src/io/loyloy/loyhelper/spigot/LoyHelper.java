@@ -22,7 +22,11 @@ public class LoyHelper extends JavaPlugin
     {
         setupConfig();
 
-        getServer().getPluginManager().registerEvents( new IPListener(this), this );
+        if( getConfig().getBoolean( "ip_filter" ) )
+        {
+            getServer().getPluginManager().registerEvents( new IPListener( this ), this );
+        }
+
         getCommand( "reloadhelper" ).setExecutor( new ReloadHelperCommand( this ) );
     }
 
@@ -34,7 +38,7 @@ public class LoyHelper extends JavaPlugin
 
         if( ! config.isSet( "ip_filter" ) )
         {
-            config.set( "ip_filter", "true" );
+            config.set( "ip_filter", true );
         }
         if( ! config.isSet( "ip_whitelist" ) )
         {
